@@ -1,0 +1,23 @@
+<!-- webtoon.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= webtoon.title %></title>
+</head>
+<body>
+  <h1><%= webtoon.title %></h1>
+  <img src="<%= webtoon.cover %>" alt="Capa">
+
+  <h2>Capítulos:</h2>
+  <ul>
+    <% for (let i = 0; i < webtoon.chapters.length; i++) { %>
+      <li>
+        <a href="/webtoon/<%= webtoon.id %>/chapter/<%= webtoon.chapters[i].id %>">
+          Capítulo <%= webtoon.chapters[i].number %>: <%= webtoon.chapters[i].title %>
+        </a>
+      </li>
+    <% } %>
+  </ul>
+</body>
+</html>

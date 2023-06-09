@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>King Mangas - Painel de Administração</title>
+</head>
+<body>
+  <h1>King Mangas - Painel de Administração</h1>
+  <h2>Webtoons</h2>
+<% if (webtoons && webtoons.length > 0) { %>
+  <ul>
+    <% for (let i = 0; i < webtoons.length; i++) { %>
+      <li>
+        <strong><%= webtoons[i].title %></strong>
+        <img src="/uploads/<%= webtoons[i].cover %>" alt="Capa <%= webtoons[i].title %>">
+        <a href="/panel/edit/<%= webtoons[i].id %>">Editar</a>
+        <a href="/panel/delete/<%= webtoons[i].id %>">Excluir</a>
+        <a href="/panel/<%= webtoons[i].id %>/upload">Enviar Capítulo</a>
+      </li>
+    <% } %>
+  </ul>
+<% } else { %>
+  <p>Nenhum webtoon cadastrado.</p>
+<% } %>
+
+  <h2>Criar Novo Webtoon</h2>
+  <form action="/panel/create" method="POST">
+    <label for="title">Título:</label>
+    <input type="text" name="title" id="title" required><br>
+    <label for="author">Autor:</label>
+    <input type="text" name="author" id="author" required><br>
+    <label for="description">Descrição:</label><br>
+    <textarea name="description" id="description" rows="5" cols="30" required></textarea><br>
+   <label for="cover">Capa:</label>
+<input type="file" name="cover" id="cover" required><br>
+    <input type="submit" value="Criar">
+  </form>
+</body>
+</html>

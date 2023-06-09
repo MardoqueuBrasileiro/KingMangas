@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>King Mangas</title>
+</head>
+<body>
+  <h1>King Mangas</h1>
+  <h2>Mais Lidos</h2>
+  <ul>
+    <% for (let i = 0; i < mostRead.length; i++) { %>
+      <li>
+        <a href="/webtoon/<%= mostRead[i].id %>">
+          <img src="<%= mostRead[i].cover %>" alt="Capa">
+          <%= mostRead[i].title %>
+        </a>
+      </li>
+    <% } %>
+  </ul>
+  <h2>Mais Recentes</h2>
+  <ul>
+    <% for (let i = 0; i < webtoons.length; i++) { %>
+      <li>
+        <a href="/webtoon/<%= webtoons[i].id %>">
+          <img src="<%= webtoons[i].cover %>" alt="Capa">
+          <%= webtoons[i].title %>
+        </a>
+      </li>
+    <% } %>
+  </ul>
+</body>
+</html>

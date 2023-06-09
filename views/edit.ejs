@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>King Mangas - Editar Webtoon</title>
+</head>
+<body>
+  <h1>King Mangas - Editar Webtoon</h1>
+  <h2><%= webtoon.title %></h2>
+  <form action="/panel/update/<%= id %>" method="POST">
+    <label for="title">Título:</label>
+    <input type="text" name="title" id="title" value="<%= webtoon.title %>" required><br>
+    <label for="author">Autor:</label>
+    <input type="text" name="author" id="author" value="<%= webtoon.author %>" required><br>
+    <label for="description">Descrição:</label><br>
+    <textarea name="description" id="description" rows="5" cols="30" required><%= webtoon.description %></textarea><br>
+    <input type="submit" value="Atualizar">
+  </form>
+  <a href="/panel">Voltar</a>
+</body>
+</html>
